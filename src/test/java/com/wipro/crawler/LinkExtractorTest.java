@@ -34,7 +34,7 @@ public class LinkExtractorTest {
         LinkExtractor linkExtractor = new LinkExtractor(con);
         Collection<Link> links = linkExtractor.getLinks();
 
-        assertThat(links.size(), is(7));
+        assertThat(links.size(), is(13));
     }
 
     private String resourceFileToString(String filename) {

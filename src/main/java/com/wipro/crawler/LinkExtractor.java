@@ -34,6 +34,9 @@ public class LinkExtractor {
 
         List<Link> links = new ArrayList<>();
         links.addAll(anchors(doc));
+        links.addAll(images(doc));
+        links.addAll(scripts(doc));
+        links.addAll(resourceLinks(doc));
 
         return links;
     }
@@ -42,6 +45,27 @@ public class LinkExtractor {
         return doc.getElementsByTag("a").stream()
                 .map((e) -> e.attr("href"))
                 .map((url) -> linkToSameDomain(doc.baseUri(), url) ? Link.from(url, INTERNAL) : Link.from(url, EXTERNAL))
+                .collect(Collectors.toList());
+    }
+
+    private Collection<Link> images(Document doc) {
+        return doc.getElementsByTag("img").stream()
+                .map((e) -> e.attr("src"))
+                .map((url) -> Link.from(url, RESOURCE))
+                .collect(Collectors.toList());
+    }
+
+    private Collection<Link> scripts(Document doc) {
+        return doc.getElementsByTag("script").stream()
+                .map((e) -> e.attr("src"))
+                .map((url) -> Link.from(url, RESOURCE))
+                .collect(Collectors.toList());
+    }
+
+    private Collection<Link> resourceLinks(Document doc) {
+        return doc.getElementsByTag("link").stream()
+                .map((e) -> e.attr("href"))
+                .map((url) -> Link.from(url, RESOURCE))
                 .collect(Collectors.toList());
     }
 }
