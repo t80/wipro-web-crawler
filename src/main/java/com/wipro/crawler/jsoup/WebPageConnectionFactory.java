@@ -1,4 +1,4 @@
-package com.wipro.crawler;
+package com.wipro.crawler.jsoup;
 
 import org.jsoup.Connection;
 import org.jsoup.Jsoup;

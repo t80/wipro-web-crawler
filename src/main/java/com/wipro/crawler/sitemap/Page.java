@@ -1,4 +1,4 @@
-package com.wipro.crawler;
+package com.wipro.crawler.sitemap;
 
 import java.util.ArrayList;
 import java.util.List;

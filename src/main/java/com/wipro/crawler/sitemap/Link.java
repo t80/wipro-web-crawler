@@ -1,6 +1,6 @@
-package com.wipro.crawler;
+package com.wipro.crawler.sitemap;
 
-import static com.wipro.crawler.LinkType.INTERNAL;
+import static com.wipro.crawler.sitemap.LinkType.INTERNAL;
 
 public class Link {
     public static Link from(String url, LinkType type) {

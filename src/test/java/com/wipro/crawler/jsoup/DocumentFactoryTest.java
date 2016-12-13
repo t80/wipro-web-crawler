@@ -1,5 +1,6 @@
-package com.wipro.crawler;
+package com.wipro.crawler.jsoup;
 
+import com.wipro.crawler.jsoup.WebPageConnectionFactory;
 import org.jsoup.Connection;
 import org.jsoup.nodes.Document;
 import org.junit.Test;

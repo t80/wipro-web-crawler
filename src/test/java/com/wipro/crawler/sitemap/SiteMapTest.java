@@ -1,9 +1,10 @@
-package com.wipro.crawler;
+package com.wipro.crawler.sitemap;
 
+import com.wipro.crawler.sitemap.Link;
 import org.junit.Before;
 import org.junit.Test;
 
-import static com.wipro.crawler.LinkType.*;
+import static com.wipro.crawler.sitemap.LinkType.*;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
 

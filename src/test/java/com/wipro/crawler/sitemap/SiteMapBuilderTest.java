@@ -1,5 +1,9 @@
-package com.wipro.crawler;
+package com.wipro.crawler.sitemap;
 
+import com.wipro.crawler.jsoup.DocumentFactory;
+import com.wipro.crawler.jsoup.LinkExtractor;
+import com.wipro.crawler.sitemap.Link;
+import com.wipro.crawler.sitemap.SiteMapBuilder;
 import org.jsoup.nodes.Document;
 import org.junit.Before;
 import org.junit.Test;
@@ -7,10 +11,10 @@ import org.junit.Test;
 import java.util.ArrayList;
 import java.util.Collection;
 
-import static com.wipro.crawler.Link.from;
-import static com.wipro.crawler.LinkType.EXTERNAL;
-import static com.wipro.crawler.LinkType.INTERNAL;
-import static com.wipro.crawler.LinkType.RESOURCE;
+import static com.wipro.crawler.sitemap.Link.from;
+import static com.wipro.crawler.sitemap.LinkType.EXTERNAL;
+import static com.wipro.crawler.sitemap.LinkType.INTERNAL;
+import static com.wipro.crawler.sitemap.LinkType.RESOURCE;
 import static org.hamcrest.CoreMatchers.isA;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.mockito.Mockito.mock;

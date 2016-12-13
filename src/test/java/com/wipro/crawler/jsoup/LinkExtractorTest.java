@@ -1,5 +1,8 @@
-package com.wipro.crawler;
+package com.wipro.crawler.jsoup;
 
+import com.wipro.crawler.jsoup.LinkExtractor;
+import com.wipro.crawler.sitemap.Link;
+import com.wipro.crawler.sitemap.LinkType;
 import org.hamcrest.Description;
 import org.hamcrest.TypeSafeMatcher;
 import org.jsoup.nodes.Document;
@@ -9,9 +12,9 @@ import org.junit.Test;
 
 import java.util.Collection;
 
-import static com.wipro.crawler.LinkType.EXTERNAL;
-import static com.wipro.crawler.LinkType.INTERNAL;
-import static com.wipro.crawler.LinkType.RESOURCE;
+import static com.wipro.crawler.sitemap.LinkType.EXTERNAL;
+import static com.wipro.crawler.sitemap.LinkType.INTERNAL;
+import static com.wipro.crawler.sitemap.LinkType.RESOURCE;
 import static com.wipro.crawler.TestUtils.MOCK_BASE_URI;
 import static com.wipro.crawler.TestUtils.MOCK_EXTERNAL_URL;
 import static com.wipro.crawler.TestUtils.externalAnchorFor;

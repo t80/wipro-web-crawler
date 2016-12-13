@@ -1,5 +1,7 @@
-package com.wipro.crawler;
+package com.wipro.crawler.sitemap;
 
+import com.wipro.crawler.jsoup.DocumentFactory;
+import com.wipro.crawler.jsoup.LinkExtractor;
 import org.jsoup.nodes.Document;
 
 public class SiteMapBuilder {

@@ -1,18 +1,17 @@
-package com.wipro.crawler;
+package com.wipro.crawler.jsoup;
 
-import org.jsoup.Jsoup;
+import com.wipro.crawler.WebUtils;
+import com.wipro.crawler.sitemap.Link;
 import org.jsoup.nodes.Document;
 
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
-import java.util.stream.Collectors;
 
-import static com.wipro.crawler.LinkType.EXTERNAL;
-import static com.wipro.crawler.LinkType.INTERNAL;
-import static com.wipro.crawler.LinkType.RESOURCE;
-import static com.wipro.crawler.WebUtils.linkToSameDomain;
-import static java.util.stream.Collectors.*;
+import static com.wipro.crawler.sitemap.LinkType.EXTERNAL;
+import static com.wipro.crawler.sitemap.LinkType.INTERNAL;
+import static com.wipro.crawler.sitemap.LinkType.RESOURCE;
+import static java.util.stream.Collectors.toList;
 
 public class LinkExtractor {
 
@@ -30,7 +29,7 @@ public class LinkExtractor {
         return doc.getElementsByTag("a").stream()
                 .filter((e) -> !e.attr("href").isEmpty())
                 .map((e) -> e.absUrl("href"))
-                .map((url) -> linkToSameDomain(doc.baseUri(), url) ? Link.from(url, INTERNAL) : Link.from(url, EXTERNAL))
+                .map((url) -> WebUtils.linkToSameDomain(doc.baseUri(), url) ? Link.from(url, INTERNAL) : Link.from(url, EXTERNAL))
                 .collect(toList());
     }
 

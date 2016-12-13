@@ -1,4 +1,4 @@
-package com.wipro.crawler;
+package com.wipro.crawler.sitemap;
 
 public enum LinkType {
     INTERNAL, EXTERNAL, RESOURCE
