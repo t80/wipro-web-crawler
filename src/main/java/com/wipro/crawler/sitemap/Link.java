@@ -8,7 +8,7 @@ public class Link {
     }
 
     private final String url;
-    private LinkType type;
+    private final LinkType type;
 
     private Link(String url, LinkType type) {
         this.url = url;

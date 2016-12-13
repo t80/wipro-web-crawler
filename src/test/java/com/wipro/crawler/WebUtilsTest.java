@@ -1,7 +1,6 @@
 package com.wipro.crawler;
 
 import org.junit.Test;
-import org.mockito.Mock;
 
 import static com.wipro.crawler.WebUtils.linkToSameDomain;
 import static org.hamcrest.CoreMatchers.is;

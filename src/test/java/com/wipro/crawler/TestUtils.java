@@ -4,12 +4,6 @@ import org.jsoup.nodes.Element;
 import org.jsoup.parser.Tag;
 import org.jsoup.select.Elements;
 
-import java.io.IOException;
-import java.net.URL;
-
-import static java.nio.file.Files.readAllBytes;
-import static java.nio.file.Paths.get;
-
 public class TestUtils {
 
     public static final String MOCK_BASE_URI = "http://www.abc.com";

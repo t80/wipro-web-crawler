@@ -5,7 +5,7 @@ import java.util.List;
 
 class Page {
     private final String url;
-    private List<Link> links = new ArrayList<>();
+    private final List<Link> links = new ArrayList<>();
 
     Page(String url) {
         this.url = url;
@@ -22,9 +22,9 @@ class Page {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("Page: " + url + "\n");
+        sb.append("Page: ").append(url).append("\n");
         for (Link l : links) {
-            sb.append("\t\t"+ l + "\n");
+            sb.append("\t\t").append(l).append("\n");
         }
 
         return sb.toString();

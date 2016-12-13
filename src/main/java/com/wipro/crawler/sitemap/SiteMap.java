@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 class SiteMap {
-    private Map<String, Page> pages = new HashMap<>();
+    private final Map<String, Page> pages = new HashMap<>();
     private final String domain;
 
     SiteMap(String domain) {
@@ -22,7 +22,7 @@ class SiteMap {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("Siptmap for: ").append(domain).append("\n");
+        sb.append("Site map for: ").append(domain).append("\n");
         for (Page p : pages.values()) {
             sb.append("\t").append(p).append("\n");
         }
