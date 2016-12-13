@@ -1,10 +1,9 @@
 package com.wipro.crawler.sitemap;
 
-import com.wipro.crawler.sitemap.Link;
 import org.junit.Before;
 import org.junit.Test;
 
-import static com.wipro.crawler.sitemap.LinkType.*;
+import static com.wipro.crawler.sitemap.LinkType.INTERNAL;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
 
@@ -13,7 +12,7 @@ public class SiteMapTest {
 
     @Before
     public void setUp() throws Exception {
-        siteMap = new SiteMap();
+        siteMap = new SiteMap("some-domain");
     }
 
     @Test

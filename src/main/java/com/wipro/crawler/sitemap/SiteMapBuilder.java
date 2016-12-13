@@ -15,7 +15,7 @@ public class SiteMapBuilder {
 
     public SiteMap siteMapFor(String rootUrl) {
         Page rootPage = new Page(rootUrl);
-        return findLinks(rootPage, new SiteMap());
+        return findLinks(rootPage, new SiteMap(rootUrl));
     }
 
     private SiteMap findLinks(Page page, SiteMap siteMap) {

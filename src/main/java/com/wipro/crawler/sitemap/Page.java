@@ -18,4 +18,15 @@ public class Page {
     public String getUrl() {
         return url;
     }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("Page: " + url + "\n");
+        for (Link l : links) {
+            sb.append("\t"+ l + "\n");
+        }
+
+        return sb.toString();
+    }
 }
