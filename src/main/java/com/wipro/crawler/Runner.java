@@ -15,13 +15,10 @@ public class Runner {
                 new DocumentFactory(new WebPageConnectionFactory()),
                 new LinkExtractor());
 
-        Console console  = System.console();
+        Console console = System.console();
         if (null != console) {
-            String url = "";
-            while (!url.equals("exit")) {
-                url = console.readLine("Enter url including protocol: ");
-                System.out.println(siteMapBuilder.siteMapFor(url));
-            }
+            String url = console.readLine("Enter url including protocol: ");
+            System.out.println(siteMapBuilder.siteMapFor(url));
         }
     }
 }

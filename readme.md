@@ -9,8 +9,7 @@
 
 1. In the terminal navigate to "crawler" directory and run "mvn clean package"
 2. Run "java -jar target/site-mapper.jar"
-3. At the command prompt enter a url including protocol, E.g http://www.bbc.co.uk, or 
-type "exit" to terminate the program.
+3. At the command prompt enter a url including protocol, E.g http://www.bbc.co.uk.
 
 ## Omissions due to time constraints
  
@@ -18,7 +17,5 @@ type "exit" to terminate the program.
 2. Thorough parameter validation
 3. Acceptance tests
 4. Consideration of parallel mapping of links/pages
-
-## Design decisions
 
 
