@@ -15,7 +15,7 @@ public class Link {
         this.type = type;
     }
 
-    public boolean pageWithSameDomain() {
+    public boolean isInternalLink() {
         return type == INTERNAL;
     }
 

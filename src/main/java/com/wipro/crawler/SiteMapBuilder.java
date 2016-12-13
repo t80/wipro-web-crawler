@@ -22,7 +22,7 @@ public class SiteMapBuilder {
         if(null != document) {
             for (Link link : linkExtractor.getLinksFrom(document)) {
                 page.addLink(link);
-                if (link.pageWithSameDomain() && !siteMap.hasPageFor(link)) {
+                if (link.isInternalLink() && !siteMap.hasPageFor(link)) {
                     findLinks(new Page(link.getUrl()), siteMap);
                 }
             }
