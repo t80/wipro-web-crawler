@@ -24,7 +24,7 @@ class Page {
         StringBuilder sb = new StringBuilder();
         sb.append("Page: " + url + "\n");
         for (Link l : links) {
-            sb.append("\t"+ l + "\n");
+            sb.append("\t\t"+ l + "\n");
         }
 
         return sb.toString();
