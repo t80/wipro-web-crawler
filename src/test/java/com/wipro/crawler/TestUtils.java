@@ -15,18 +15,6 @@ public class TestUtils {
     public static final String MOCK_BASE_URI = "http://www.abc.com";
     public static final String MOCK_EXTERNAL_URL = "http://www.xyz.com";
 
-    public static String resourceFileToString(String filename) {
-        URL resource = TestUtils.class.getClassLoader().getResource(filename);
-        String string = null;
-        try {
-            string = new String(readAllBytes(get(resource.getPath())));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        return string;
-    }
-
     public static Element imageWithSrc(String src) {
         Element element = new Element(Tag.valueOf("img"), MOCK_BASE_URI);
         element.attr("src", src);
