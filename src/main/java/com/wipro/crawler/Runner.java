@@ -18,7 +18,7 @@ public class Runner {
         if (console != null) {
             String url = "";
             while (!url.equals("exit")) {
-                url = console.readLine("Enter url: ");
+                url = console.readLine("Enter url including protocol: ");
                 System.out.println(siteMapBuilder.siteMapFor(url));
             }
         }
