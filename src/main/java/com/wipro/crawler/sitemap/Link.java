@@ -10,7 +10,7 @@ public class Link {
     private final String url;
     private LinkType type;
 
-    public Link(String url, LinkType type) {
+    private Link(String url, LinkType type) {
         this.url = url;
         this.type = type;
     }

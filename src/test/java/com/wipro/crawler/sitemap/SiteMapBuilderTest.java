@@ -2,8 +2,6 @@ package com.wipro.crawler.sitemap;
 
 import com.wipro.crawler.jsoup.DocumentFactory;
 import com.wipro.crawler.jsoup.LinkExtractor;
-import com.wipro.crawler.sitemap.Link;
-import com.wipro.crawler.sitemap.SiteMapBuilder;
 import org.jsoup.nodes.Document;
 import org.junit.Before;
 import org.junit.Test;
@@ -25,11 +23,11 @@ public class SiteMapBuilderTest {
     private final Document mockHomePage = mock(Document.class);
     private final Document mockChildPage = mock(Document.class);
     private final LinkExtractor linkExtractor = mock(LinkExtractor.class);
-    private SiteMapBuilder siteMapBuilder;
+    private SiteMapBuilderImpl siteMapBuilder;
 
     @Before
     public void setUp() throws Exception {
-        siteMapBuilder = new SiteMapBuilder(documentFactory, linkExtractor);
+        siteMapBuilder = new SiteMapBuilderImpl(documentFactory, linkExtractor);
     }
 
     @Test
