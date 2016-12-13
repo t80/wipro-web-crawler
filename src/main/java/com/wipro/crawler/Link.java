@@ -22,4 +22,19 @@ public class Link {
     public String getUrl() {
         return url;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Link link = (Link) o;
+
+        return url.equals(link.url);
+    }
+
+    @Override
+    public int hashCode() {
+        return url.hashCode();
+    }
 }

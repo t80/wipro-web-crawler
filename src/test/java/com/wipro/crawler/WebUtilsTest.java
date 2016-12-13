@@ -8,7 +8,6 @@ import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
 
 public class WebUtilsTest {
-
     @Mock
     private String doc = "http://www.wipro.com";
 

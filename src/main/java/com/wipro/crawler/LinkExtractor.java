@@ -1,37 +1,20 @@
 package com.wipro.crawler;
 
-import org.jsoup.Connection;
-import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import static com.wipro.crawler.LinkType.*;
-import static com.wipro.crawler.WebUtils.*;
+import static com.wipro.crawler.LinkType.EXTERNAL;
+import static com.wipro.crawler.LinkType.INTERNAL;
+import static com.wipro.crawler.LinkType.RESOURCE;
+import static com.wipro.crawler.WebUtils.linkToSameDomain;
 
 public class LinkExtractor {
-    public static LinkExtractor forUrl(String url) {
-        return new LinkExtractor(Jsoup.connect(url));
-    }
 
-    private final Connection connection;
-
-    public LinkExtractor(Connection connection) {
-        this.connection = connection;
-    }
-
-    public Collection<Link> getLinks() {
-        Document doc = null;
-        try {
-            doc = connection.get();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
+    public Collection<Link> getLinksFrom(Document doc) {
         List<Link> links = new ArrayList<>();
         links.addAll(anchors(doc));
         links.addAll(images(doc));
