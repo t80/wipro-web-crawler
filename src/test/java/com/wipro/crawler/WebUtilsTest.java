@@ -8,14 +8,25 @@ import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
 
 public class WebUtilsTest {
-    @Mock
-    private String doc = "http://www.wipro.com";
 
     @Test
     public void detectsLinkToSameDomain() {
-        assertThat(linkToSameDomain(doc, "http://www.wipro.com/services"), is(true));
+        String doc = "http://www.abc.com";
 
-        assertThat(linkToSameDomain(doc, "http://subdomain.wipro.com"), is(false));
+        assertThat(linkToSameDomain(doc, "http://www.abc.com/services"), is(true));
+
+        assertThat(linkToSameDomain(doc, "http://subdomain.abc.com"), is(false));
+        assertThat(linkToSameDomain(doc, "http://amazon.com"), is(false));
+    }
+
+    @Test
+    public void detectsLinkToSameDomainWhenTestingSiblingPages() {
+        String doc = "http://www.abc.com/contact";
+
+        assertThat(linkToSameDomain(doc, "http://www.abc.com/services"), is(true));
+        assertThat(linkToSameDomain(doc, "http://www.abc.com"), is(true));
+
+        assertThat(linkToSameDomain(doc, "http://subdomain.abc.com"), is(false));
         assertThat(linkToSameDomain(doc, "http://amazon.com"), is(false));
     }
 }

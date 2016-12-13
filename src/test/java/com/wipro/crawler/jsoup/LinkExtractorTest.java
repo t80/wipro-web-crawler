@@ -1,6 +1,5 @@
 package com.wipro.crawler.jsoup;
 
-import com.wipro.crawler.jsoup.LinkExtractor;
 import com.wipro.crawler.sitemap.Link;
 import com.wipro.crawler.sitemap.LinkType;
 import org.hamcrest.Description;
@@ -12,9 +11,6 @@ import org.junit.Test;
 
 import java.util.Collection;
 
-import static com.wipro.crawler.sitemap.LinkType.EXTERNAL;
-import static com.wipro.crawler.sitemap.LinkType.INTERNAL;
-import static com.wipro.crawler.sitemap.LinkType.RESOURCE;
 import static com.wipro.crawler.TestUtils.MOCK_BASE_URI;
 import static com.wipro.crawler.TestUtils.MOCK_EXTERNAL_URL;
 import static com.wipro.crawler.TestUtils.externalAnchorFor;
@@ -26,6 +22,9 @@ import static com.wipro.crawler.TestUtils.singleAnchorWithNoHref;
 import static com.wipro.crawler.TestUtils.singleImageWithNoSrc;
 import static com.wipro.crawler.TestUtils.singleLinkWithNoHref;
 import static com.wipro.crawler.TestUtils.singleScriptWithNoSrc;
+import static com.wipro.crawler.sitemap.LinkType.EXTERNAL;
+import static com.wipro.crawler.sitemap.LinkType.INTERNAL;
+import static com.wipro.crawler.sitemap.LinkType.RESOURCE;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.mockito.ArgumentMatchers.anyString;
