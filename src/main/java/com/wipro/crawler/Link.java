@@ -1,6 +1,6 @@
 package com.wipro.crawler;
 
-import static com.wipro.crawler.LinkType.*;
+import static com.wipro.crawler.LinkType.INTERNAL;
 
 public class Link {
     public static Link from(String url, LinkType type) {
@@ -17,6 +17,10 @@ public class Link {
 
     public boolean isInternalLink() {
         return type == INTERNAL;
+    }
+
+    public LinkType getType() {
+        return type;
     }
 
     public String getUrl() {
@@ -36,5 +40,10 @@ public class Link {
     @Override
     public int hashCode() {
         return url.hashCode();
+    }
+
+    @Override
+    public String toString() {
+        return type + " link for url: " + url;
     }
 }
