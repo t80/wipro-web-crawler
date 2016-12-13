@@ -7,6 +7,7 @@ import org.junit.Test;
 import java.io.IOException;
 
 import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.CoreMatchers.isA;
 import static org.hamcrest.CoreMatchers.nullValue;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.mockito.Mockito.mock;
@@ -18,13 +19,21 @@ public class DocumentFactoryTest {
     private final Connection connection = mock(Connection.class);
 
     @Test
-    public void returnsNullOnConnectionException() throws IOException {
+    public void returnsNullOnFailedDocumentRetrieval() throws IOException {
         when(connectionFactory.connectionFor("some-url")).thenReturn(connection);
         when(connection.get()).thenThrow(IOException.class);
 
         Document document = documentFactory.documentFor("some-url");
 
         assertThat(document, is(nullValue()));
+    }
+
+    @Test
+    public void returnsConnections() throws IOException {
+        when(connectionFactory.connectionFor("some-url")).thenReturn(connection);
+        when(connection.get()).thenReturn(mock(Document.class));
+
+        assertThat(documentFactory.documentFor("some-url"), isA(Document.class));
     }
 
 }
