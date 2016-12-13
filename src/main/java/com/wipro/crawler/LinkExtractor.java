@@ -16,36 +16,36 @@ public class LinkExtractor {
 
     public Collection<Link> getLinksFrom(Document doc) {
         List<Link> links = new ArrayList<>();
-        links.addAll(anchors(doc));
-        links.addAll(images(doc));
-        links.addAll(scripts(doc));
-        links.addAll(resourceLinks(doc));
+        links.addAll(anchorsFrom(doc));
+        links.addAll(imagesFrom(doc));
+        links.addAll(scriptsFrom(doc));
+        links.addAll(resourceLinksFrom(doc));
 
         return links;
     }
 
-    private Collection<Link> anchors(Document doc) {
+    private Collection<Link> anchorsFrom(Document doc) {
         return doc.getElementsByTag("a").stream()
                 .map((e) -> e.attr("href"))
                 .map((url) -> linkToSameDomain(doc.baseUri(), url) ? Link.from(url, INTERNAL) : Link.from(url, EXTERNAL))
                 .collect(Collectors.toList());
     }
 
-    private Collection<Link> images(Document doc) {
+    private Collection<Link> imagesFrom(Document doc) {
         return doc.getElementsByTag("img").stream()
                 .map((e) -> e.attr("src"))
                 .map((url) -> Link.from(url, RESOURCE))
                 .collect(Collectors.toList());
     }
 
-    private Collection<Link> scripts(Document doc) {
+    private Collection<Link> scriptsFrom(Document doc) {
         return doc.getElementsByTag("script").stream()
                 .map((e) -> e.attr("src"))
                 .map((url) -> Link.from(url, RESOURCE))
                 .collect(Collectors.toList());
     }
 
-    private Collection<Link> resourceLinks(Document doc) {
+    private Collection<Link> resourceLinksFrom(Document doc) {
         return doc.getElementsByTag("link").stream()
                 .map((e) -> e.attr("href"))
                 .map((url) -> Link.from(url, RESOURCE))
