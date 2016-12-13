@@ -17,5 +17,6 @@
 2. Thorough parameter validation
 3. Acceptance tests
 4. Consideration of parallel mapping of links/pages
+5. Production of a JSON/XML representation of the site map
 
 
